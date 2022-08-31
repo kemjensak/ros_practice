@@ -1,0 +1,4 @@
+#roslaunch fourth_robot_navigation fourth_robot_gazebo.launch
+roslaunch fourth_robot_navigation fourth_robot_mapping.launch
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py /cmd_vel:=/ diff_drive_controller/cmd_vel
+rosrun map_server map_saver -f playground

@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<robot name="manipulator">
+
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="red">
+    <color rgba="1.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="green">
+    <color rgba="0.0 1.0 0.0 1.0"/>
+  </material>
+
+  <link name="base">
+    <visual>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.2"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+      </material> 
+    </visual>
+
+    <inertial>
+      <origin xyz="3.0876154e-04 0.0000000e+00 -1.2176461e-04" />
+      <mass value="7.9119962e-02" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+               iyy="1.0" iyz="0.0"
+               izz="0.1" />
+    </inertial>
+  </link>
+  <!-- Link 1 -->
+  <link name="link1">
+    <visual>
+      <origin xyz="0 0 0.2" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.4"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1.0 0.0 0.0 1.0"/>
+      </material>
+    </visual>
+
+    <inertial>
+      <origin xyz="3.0876154e-04 0.0000000e+00 -1.2176461e-04" />
+      <mass value="7.9119962e-02" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+               iyy="1.0" iyz="0.0"
+               izz="0.1" />
+    </inertial>
+  </link>
+
+  <link name="link2">
+    <visual>
+      <origin xyz="0 0 0.3" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.6"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0.0 1.0 0.0 1.0"/>
+      </material>
+    </visual>
+
+    <inertial>
+      <origin xyz="3.0876154e-04 0.0000000e+00 -1.2176461e-04" />
+      <mass value="7.9119962e-02" />
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0"
+               iyy="1.0" iyz="0.0"
+               izz="0.1" />
+    </inertial>
+  </link>
+
+  <joint name="joint1" type="revolute">
+    <origin xyz="0 0 0.2" rpy="0 0 0"/>
+    <parent link="base"/>
+    <child link="link1"/>
+    <limit effort="30" velocity="1.0" lower="-2.6175" upper="2.6175" />
+  </joint>
+
+  <joint name="joint2" type="revolute">
+    <origin xyz="0 0 0.4" rpy="0 0 0"/>
+    <parent link="link1"/>
+    <child link="link2"/>
+    <limit effort="30" velocity="1.0" lower="-2.6175" upper="2.6175" />
+  </joint>
+
+  <!-- <joint name="joint2" type="revolute">
+    <origin xyz="0 0 0.6" rpy="0 0 0"/>
+    <parent link="link2"/>
+    <child link="link3"/>
+    <limit effort="30" velocity="1.0" lower="-2.6175" upper="2.6175" />
+  </joint> -->
+
+</robot>
